@@ -7,7 +7,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Privilege Biz">
-<link rel="manifest" href='data:application/manifest+json,{"name":"Privilege for Business","short_name":"Privilege Biz","start_url":".","display":"standalone","background_color":"%23F7F5F1","theme_color":"%230D1117","icons":[{"src":"data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><text x=%2250%22 y=%2266%22 font-size=%2244%22 text-anchor=%22middle%22 fill=%22%23F7F5F1%22 font-family=%22Georgia,serif%22>Pr</text></svg>","sizes":"any","type":"image/svg+xml"}]}'>
+<link rel="manifest" href="./manifest.webmanifest">
 <title>Privilege for Business</title>
 <!-- Source Serif 4: headings + display numerals (design system, Jul 2026).
      Loaded from Google Fonts with display=swap; Georgia is the offline/blocked
@@ -4056,6 +4056,12 @@ window.__privBuildOK = true;
 <script>
 if (!window.__privBuildOK) {
   document.body.innerHTML = '<div style="font-family:-apple-system,BlinkMacSystemFont,sans-serif;max-width:520px;margin:80px auto;padding:24px;border:1px solid #D3D9E1;border-radius:14px;color:#0D1117;background:#fff"><div style="font-size:15px;font-weight:600">This copy of the prototype is incomplete</div><div style="font-size:13px;color:#5B6472;line-height:1.6;margin-top:8px">The main script did not load in full &mdash; usually a truncated paste or an interrupted download. Re-download <b>privilege-merchant-dashboard.html</b> and open the file directly in your browser.</div></div>';
+}
+</script>
+<script>
+// Service worker: registered only over http(s); file:// stays clean.
+if (location.protocol.indexOf('http') === 0 && 'serviceWorker' in navigator) {
+  navigator.serviceWorker.register('./sw.js').catch(function(){});
 }
 </script>
 </body>
